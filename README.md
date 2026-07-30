@@ -1,5 +1,9 @@
 # clean-writing-system
 
+[![npm](https://img.shields.io/npm/v/clean-writing-lint)](https://www.npmjs.com/package/clean-writing-lint)
+[![ci](https://github.com/mvillere/clean-writing-system/actions/workflows/ci.yml/badge.svg)](https://github.com/mvillere/clean-writing-system/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 Drop-in writing rules for AI coding agents. Copy one markdown file into your
 repository, add one pointer line, and the agent stops writing docs that sound
 like a press release.

@@ -1,0 +1,23 @@
+# Normalize line endings.
+#
+# Git stores LF in the repository and checks out LF in the working tree, on
+# every platform. Without this, a Windows checkout writes CRLF to disk and the
+# next commit from Linux shows every line as changed.
+
+* text=auto eol=lf
+
+# Files that must keep CRLF to work on Windows.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary. Never touch the bytes and never try to diff them.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.zip binary
+*.tgz binary
