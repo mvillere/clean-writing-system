@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Test
         working-directory: packages/clean-writing-lint
-        run: node --test "test/*.test.js"
+        run: npm test
 
   prose:
     # The repository has to pass its own style guide.

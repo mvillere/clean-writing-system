@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test \"test/*.test.js\"",
+    "test": "node --test",
     "lint:self": "node bin/cwlint.js ../../README.md ../../AGENTS.md ../../writing-systems"
   },
   "homepage": "https://github.com/mvillere/clean-writing-system/tree/main/packages/clean-writing-lint",
