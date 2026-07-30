@@ -1,0 +1,51 @@
+{
+  "name": "clean-writing-system",
+  "version": "0.1.0",
+  "description": "Install a writing system for AI coding agents into your repository. Vendors the style guide and wires up Claude Code, Cursor, and AGENTS.md.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Michael Villere",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvillere/clean-writing-system.git",
+    "directory": "packages/clean-writing-system"
+  },
+  "homepage": "https://github.com/mvillere/clean-writing-system",
+  "bugs": {
+    "url": "https://github.com/mvillere/clean-writing-system/issues"
+  },
+  "keywords": [
+    "ai",
+    "documentation",
+    "writing",
+    "claude-code",
+    "cursor",
+    "agents-md",
+    "ai-slop",
+    "simplified-technical-english",
+    "scaffold"
+  ],
+  "bin": {
+    "clean-writing-system": "./bin/cli.js",
+    "cws": "./bin/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-assets.js",
+    "sync:check": "node scripts/sync-assets.js --check",
+    "prepack": "node scripts/sync-assets.js",
+    "test": "node --test"
+  }
+}

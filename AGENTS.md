@@ -21,6 +21,10 @@ documents. Run the self-check at the end of `ste.md` before you return any text.
 `adapters/` point at it. They do not copy the rules. If you change a rule,
 change it in `ste.md` only.
 
+`packages/clean-writing-system/assets/` holds generated copies of the writing
+systems and the adapters. Never edit them. Run `npm run sync` in that package
+after you change a source file. CI fails when they drift.
+
 The files in `writing-systems/` must obey themselves. A style guide that breaks
 its own rules is worth nothing.
 

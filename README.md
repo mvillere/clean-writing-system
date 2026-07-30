@@ -1,6 +1,7 @@
 # clean-writing-system
 
-[![npm](https://img.shields.io/npm/v/clean-writing-lint)](https://www.npmjs.com/package/clean-writing-lint)
+[![npm clean-writing-system](https://img.shields.io/npm/v/clean-writing-system?label=clean-writing-system)](https://www.npmjs.com/package/clean-writing-system)
+[![npm clean-writing-lint](https://img.shields.io/npm/v/clean-writing-lint?label=clean-writing-lint)](https://www.npmjs.com/package/clean-writing-lint)
 [![ci](https://github.com/mvillere/clean-writing-system/actions/workflows/ci.yml/badge.svg)](https://github.com/mvillere/clean-writing-system/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
@@ -54,8 +55,19 @@ GOOD: The upload failed. The file is 82 MB and the limit is 25 MB.
 
 ## Install
 
-Every path is the same two steps. Copy the system file, then point your agent at
-it.
+One command, in the repository you want it in:
+
+```bash
+npx clean-writing-system init
+```
+
+It detects Claude Code, Cursor, and `AGENTS.md`, shows you a plan, and writes
+the files. Add `--dry-run` to see the plan and change nothing. Running it twice
+is safe, and it never overwrites your edits without `--force`. See
+[`packages/clean-writing-system`](packages/clean-writing-system).
+
+The rest of this section is the same job done by hand, if you would rather see
+every file.
 
 ### Claude Code
 
@@ -180,8 +192,10 @@ plan:
 - [x] A Node port of the anti-slop linter, with suppression comments and a CI
       score threshold. Çelebi's original is Python, which is a second toolchain
       in a JavaScript repository
-- [ ] `npx clean-writing-system add ste` to copy the file and write the pointer
+- [x] `npx clean-writing-system init` to copy the file and write the pointer
       line for the tool it detects
+- [ ] `clean-writing-system check`, to report when the vendored copy has fallen
+      behind the published one. The installer already writes the version stamp
 - [ ] A wider benchmark. Çelebi ran 6 tasks against 2 models. Running these files
       at higher n, across Claude, GPT, Gemini, and Grok, would say which system
       works where
@@ -219,6 +233,7 @@ What this repository adds:
 - separate rules for comments, error messages, commits, and changelogs
 - install paths for the tools people run
 - a linter that knows a style guide has to quote the words it bans
+- a one-command installer that is safe to run twice
 
 The six rules in `orwell.md` come from "Politics and the English Language" by
 George Orwell, 1946.

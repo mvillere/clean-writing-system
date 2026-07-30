@@ -1,0 +1,16 @@
+---
+description: House writing style for prose. Use when writing or editing READMEs, documentation, code comments, docstrings, error messages, commit messages, pull request bodies, or release notes.
+globs: ["**/*.md", "**/*.mdx", "**/*.mdc", "docs/**"]
+alwaysApply: false
+---
+
+Follow the writing rules in @writing-systems/ste.md for all prose.
+
+Prose means READMEs, documentation, code comments, docstrings, error messages,
+commit messages, pull request bodies, and release notes. It does not mean code,
+identifiers, command syntax, or the contents of code blocks.
+
+Use strict mode for error messages, warnings, and log lines. Use flavored mode
+for documents.
+
+Run the self-check in that file before you return the text.

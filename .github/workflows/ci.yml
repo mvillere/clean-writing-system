@@ -20,8 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - name: Test
+      - name: Test clean-writing-lint
         working-directory: packages/clean-writing-lint
+        run: npm test
+      - name: Test clean-writing-system
+        working-directory: packages/clean-writing-system
         run: npm test
 
   prose:
@@ -34,3 +37,8 @@ jobs:
           node-version: 22
       - name: Lint prose
         run: node packages/clean-writing-lint/bin/cwlint.js .
+      # The installer bundles copies of the writing systems. Fail if they have
+      # drifted from the source of truth at the repository root.
+      - name: Check bundled assets
+        working-directory: packages/clean-writing-system
+        run: npm run sync:check
