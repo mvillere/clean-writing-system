@@ -1,0 +1,4 @@
+{
+  "maxScore": 1,
+  "ignore": ["node_modules", ".git", "CHANGELOG.md", "scratchpad"]
+}

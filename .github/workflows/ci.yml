@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    # Windows is in the matrix on purpose. The bug this linter was ported to
+    # fix only appears on a non-UTF-8 default locale.
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Test
+        working-directory: packages/clean-writing-lint
+        run: node --test "test/*.test.js"
+
+  prose:
+    # The repository has to pass its own style guide.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lint prose
+        run: node packages/clean-writing-lint/bin/cwlint.js .
